@@ -13,43 +13,27 @@ using PowerteqDTModels;
 
 namespace PowerteqDtData
 {
-	public class PowerteqContextMock: IPowerteqContext
+	public class PowerteqContextMock : IPowerteqContext
 	{
-		private DbSet<LocationModel> _locations;
-		private DbSet<SystemModel> _systems;
-		private DbSet<DepartmentModel> _departments;
-		private DbSet<DowntimeEventModel> _downtimeEvents;
-
 		public PowerteqContextMock()
 		{
-			var list = new TestDbSet<LocationModel>();
-			
+
+			this.Locations = new TestDbSet<LocationModel>();
+			this.Systems = new TestDbSet<SystemModel>();
+			this.Departments = new TestDbSet<DepartmentModel>();
+			this.DowntimeEvents = new TestDbSet<DowntimeEventModel>();
+
+			this.Locations.Add(new LocationModel { id = 0, locationName = "mock location" });
 
 		}
 
-		public DbSet<LocationModel> Locations
-		{
-			get { return _locations; }
-			set { _locations = value; }
-		}
+		public DbSet<LocationModel> Locations { get; set; }
 
-		public DbSet<SystemModel> Systems
-		{
-			get { return _systems; }
-			set { _systems = value; }
-		}
+		public DbSet<SystemModel> Systems { get; set; }
 
-		public DbSet<DepartmentModel> Departments
-		{
-			get { return _departments; }
-			set { _departments = value; }
-		}
+		public DbSet<DepartmentModel> Departments { get; set; }
 
-		public DbSet<DowntimeEventModel> DowntimeEvents
-		{
-			get { return _downtimeEvents; }
-			set { _downtimeEvents = value; }
-		}
+		public DbSet<DowntimeEventModel> DowntimeEvents { get; set; }
 
 		public void SaveChanges()
 		{
