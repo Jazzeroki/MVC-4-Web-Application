@@ -10,11 +10,11 @@ namespace PowerteqDTReport.Controllers
 {
     public class HomeController : Controller
     {
-        private PowerteqContext PowerteqContext;
+        private IPowerteqContext PowerteqContext;
 
         //
         // GET: /Home/
-        public HomeController(PowerteqContext context)
+        public HomeController(IPowerteqContext context)
         {
             PowerteqContext = context;
         }

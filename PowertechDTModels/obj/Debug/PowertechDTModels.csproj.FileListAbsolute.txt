@@ -1,4 +1,0 @@
-C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowertechDTModels\bin\Debug\PowertechDTModels.dll
-C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowertechDTModels\bin\Debug\PowertechDTModels.pdb
-C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowertechDTModels\obj\Debug\PowertechDTModels.dll
-C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowertechDTModels\obj\Debug\PowertechDTModels.pdb
