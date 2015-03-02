@@ -141,9 +141,30 @@
                 </div>
             </div>*@
 
+        <div class="container">
+            <div class="row">
+                <h3>Working Hours</h3>
+                <div class="col-sm-3">
+                    <h4>Start of work hours</h4>
+                    <p>
+                        @Html.EditorFor(model => model.startWorkingHours)
+                        @Html.ValidationMessageFor(model => model.startWorkingHours)
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>End of work hours</h4>
+                    <p>
+                        @Html.EditorFor(model => model.endWorkingHours)
+                        @Html.ValidationMessageFor(model => model.endWorkingHours)
+                    </p>
+                </div>
+            </div>
+        </div>
+
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.startWorkingHours)
+            @*@Html.LabelFor(model => model.startWorkingHours)*@
+            <h3></h3>
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.startWorkingHours)
@@ -151,7 +172,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.endWorkingHours)
+            @*@Html.LabelFor(model => model.endWorkingHours)*@
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.endWorkingHours)
