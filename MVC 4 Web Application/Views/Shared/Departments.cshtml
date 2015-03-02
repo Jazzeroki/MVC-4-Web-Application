@@ -16,22 +16,26 @@
         @*<legend>DepartmentModel</legend>*@
 
         @Html.HiddenFor(model => model.id)
+        <div class="container">
+            <div class="row">
+                <h3>Department Name</h3>
+                <div class="col-sm-3">
+                    <p>
+                        @Html.EditorFor(model => model.departmentName)
+                        @Html.ValidationMessageFor(model => model.departmentName)
+                    </p>
+                </div>
+            </div>
+        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.departmentName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.departmentName)
-            @Html.ValidationMessageFor(model => model.departmentName)
-        </div>
 
         @*<div class="editor-label">
-            @Html.LabelFor(model => model.locationID)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.locationID)
-            @Html.ValidationMessageFor(model => model.locationID)
-        </div>*@
+                @Html.LabelFor(model => model.locationID)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.locationID)
+                @Html.ValidationMessageFor(model => model.locationID)
+            </div>*@
 
         <!-- Days of the week-->
         <div class="container">
@@ -160,28 +164,11 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="editor-label">
-            @*@Html.LabelFor(model => model.startWorkingHours)*@
-            <h3></h3>
+        <div class="container">
+            <div class="row">
+                <input type="submit" value="Save" />
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.startWorkingHours)
-            @Html.ValidationMessageFor(model => model.startWorkingHours)
-        </div>
-
-        <div class="editor-label">
-            @*@Html.LabelFor(model => model.endWorkingHours)*@
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.endWorkingHours)
-            @Html.ValidationMessageFor(model => model.endWorkingHours)
-        </div>
-
-        <p>
-            <input type="submit" value="Save" />
-        </p>
     </fieldset>
 }
 
