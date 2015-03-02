@@ -5,12 +5,25 @@
 }
 
 <h2>@ViewBag.Title</h2>
-
-@@if (Model.Systems.ElementAt(0) != null)
+@if (Model.Systems.Count<Object>() != 0)
 {
-    <table>
+    <div class="container">
         @foreach (var sys in Model.Systems)
         {
+
+            <div class="row">
+                <div class="col-sm-3">System Name</div>
+                <div class="col-sm-1">Edit</div>
+                <div class="col-sm-1">Delete</div>
+            </div>
+
+        }
+    </div>
+}
+
+<table>
+    @foreach (var sys in Model.Systems)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(l => sys.systemName)
@@ -18,9 +31,9 @@
             <td>@Html.ActionLink("Edit", "EditSystem")</td>
             <td>@Html.ActionLink("Delete", "DeleteSystem")</td>
         </tr>
-        }
-    </table>
-}
+    }
+</table>
+
 
 
 
