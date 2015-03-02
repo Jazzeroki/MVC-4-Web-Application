@@ -5,20 +5,24 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<table>
-    @if (Model.Systems.ElementAt(0) != null) { 
-    foreach (var sys in Model.Systems)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(l => sys.systemName)
-        </td>
-        <td>@Html.ActionLink("Edit", "EditSystem")</td>
-        <td>@Html.ActionLink("Delete", "DeleteSystem")</td>
-    </tr>
-    }}
 
-</table>
+@@if (Model.Systems.ElementAt(0) != null)
+{
+    <table>
+        @foreach (var sys in Model.Systems)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(l => sys.systemName)
+            </td>
+            <td>@Html.ActionLink("Edit", "EditSystem")</td>
+            <td>@Html.ActionLink("Delete", "DeleteSystem")</td>
+        </tr>
+        }
+    </table>
+}
+
+
 
 
 

@@ -13,5 +13,7 @@ namespace PowerteqDtData
     {
         public DbSet<LocationModel> Locations{ get; set; }
         public DbSet<SystemModel> Systems { get; set; }
+        public DbSet<DepartmentModel> Departments { get; set; }
+        public DbSet<DowntimeEventModel> DowntimeEvents { get; set; }
     }
 }
