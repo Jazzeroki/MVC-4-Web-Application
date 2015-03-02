@@ -1,3 +1,11 @@
+# Ignoring class and bin files
+MVC 4 WebApplication\bin
+MVC 4 WebApplication\obj
+PowertechDTModels\bin
+PowertechDTModels\obj
+PowerteqDtData\bin
+PowerteqDtData\obj
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
