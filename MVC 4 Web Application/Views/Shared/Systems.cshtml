@@ -1,0 +1,55 @@
+﻿@model PowerteqDTReport.Models.SystemViewModel
+@{
+    ViewBag.Title = "Systems";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<table>
+    @if (Model.Systems.ElementAt(0) != null) { 
+    foreach (var sys in Model.Systems)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(l => sys.systemName)
+        </td>
+        <td>@Html.ActionLink("Edit", "EditSystem")</td>
+        <td>@Html.ActionLink("Delete", "DeleteSystem")</td>
+    </tr>
+    }}
+
+</table>
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SystemModel</legend>
+
+        @Html.HiddenFor(model => model.System.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.System.systemName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.System.systemName)
+            @Html.ValidationMessageFor(model => model.System.systemName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

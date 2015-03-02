@@ -1,0 +1,12 @@
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\PowerteqDtData.dll.config
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\PowerteqDtData.dll
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\PowerteqDtData.pdb
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\EntityFramework.dll
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\PowertechDTModels.dll
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\PowertechDTModels.pdb
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\EntityFramework.xml
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\obj\Debug\PowerteqDtData.csprojResolveAssemblyReference.cache
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\obj\Debug\PowerteqDtData.dll
+C:\Users\Jazz\Documents\Visual Studio 2013\Projects\MVC 4 Web Application\PowerteqDtData\obj\Debug\PowerteqDtData.pdb

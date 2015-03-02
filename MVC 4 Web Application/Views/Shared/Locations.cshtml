@@ -1,0 +1,52 @@
+﻿@model PowerteqDTReport.Models.LocationViewModel
+
+
+@{
+    ViewBag.Title = "Location";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+<table>
+    
+        @foreach (var Location in Model.Locations)
+        {<tr>
+            <td>
+                @Html.DisplayFor(l => Location.locationName)
+            </td>
+            <td>@Html.ActionLink("Edit", "EditLocation")</td>
+            <td>@Html.ActionLink("Delete", "DeleteLocation")</td>
+        </tr>
+        }
+    
+</table>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Enter a New Location</legend>
+
+        @Html.HiddenFor(model => model.Location.id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Location.locationName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Location.locationName)
+            @Html.ValidationMessageFor(model => model.Location.locationName)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

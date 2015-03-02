@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerteqDTReport", "MVC 4 Web Application\PowerteqDTReport.csproj", "{CCBE2C21-AA2A-417A-891D-F29C18400F12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerteqDtData", "PowerteqDtData\PowerteqDtData.csproj", "{9E3B28CF-8EE1-4A87-B48B-DDDF3015EBE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowertechDTModels", "PowertechDTModels\PowertechDTModels.csproj", "{A45868E1-740A-4716-9651-C5C204BF741F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCBE2C21-AA2A-417A-891D-F29C18400F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCBE2C21-AA2A-417A-891D-F29C18400F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCBE2C21-AA2A-417A-891D-F29C18400F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCBE2C21-AA2A-417A-891D-F29C18400F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3B28CF-8EE1-4A87-B48B-DDDF3015EBE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3B28CF-8EE1-4A87-B48B-DDDF3015EBE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3B28CF-8EE1-4A87-B48B-DDDF3015EBE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3B28CF-8EE1-4A87-B48B-DDDF3015EBE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A45868E1-740A-4716-9651-C5C204BF741F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A45868E1-740A-4716-9651-C5C204BF741F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A45868E1-740A-4716-9651-C5C204BF741F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A45868E1-740A-4716-9651-C5C204BF741F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
