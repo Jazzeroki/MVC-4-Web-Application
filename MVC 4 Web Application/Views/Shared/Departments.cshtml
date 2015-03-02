@@ -13,7 +13,7 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>DepartmentModel</legend>
+        @*<legend>DepartmentModel</legend>*@
 
         @Html.HiddenFor(model => model.id)
 
@@ -25,72 +25,121 @@
             @Html.ValidationMessageFor(model => model.departmentName)
         </div>
 
-        <div class="editor-label">
+        @*<div class="editor-label">
             @Html.LabelFor(model => model.locationID)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.locationID)
             @Html.ValidationMessageFor(model => model.locationID)
-        </div>
+        </div>*@
 
         <!-- Days of the week-->
-        <div class="row">
-            <div class="editor-label">
-                @Html.LabelFor(model => model.workdayMon)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.workdayMon)
-                @Html.ValidationMessageFor(model => model.workdayMon)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.workdayTue)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.workdayTue)
-                @Html.ValidationMessageFor(model => model.workdayTue)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.workdayWed)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.workdayWed)
-                @Html.ValidationMessageFor(model => model.workdayWed)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.workdayThu)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.workdayThu)
-                @Html.ValidationMessageFor(model => model.workdayThu)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.workdayFri)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.workdayFri)
-                @Html.ValidationMessageFor(model => model.workdayFri)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.workdaySat)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.workdaySat)
-                @Html.ValidationMessageFor(model => model.workdaySat)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.workdaySun)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.workdaySun)
-                @Html.ValidationMessageFor(model => model.workdaySun)
+        <div class="container">
+            <div class="row">
+                <h3>Working Days</h3>
+                <div class="col-sm-1">
+                    Mon <p>
+                        @Html.EditorFor(model => model.workdayMon)
+                        @Html.ValidationMessageFor(model => model.workdayMon)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Tue <p>
+                        @Html.EditorFor(model => model.workdayTue)
+                        @Html.ValidationMessageFor(model => model.workdayTue)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Wed <p>
+                        @Html.EditorFor(model => model.workdayWed)
+                        @Html.ValidationMessageFor(model => model.workdayWed)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Thu <p>
+                        @Html.EditorFor(model => model.workdayThu)
+                        @Html.ValidationMessageFor(model => model.workdayThu)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Fri <p>
+                        @Html.EditorFor(model => model.workdayFri)
+                        @Html.ValidationMessageFor(model => model.workdayFri)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Sat <p>
+                        @Html.EditorFor(model => model.workdaySat)
+                        @Html.ValidationMessageFor(model => model.workdaySat)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Sun <p>
+                        @Html.EditorFor(model => model.workdaySun)
+                        @Html.ValidationMessageFor(model => model.workdaySun)
+                    </p>
+                </div>
             </div>
         </div>
+        @*<div class="row">
+                <div class="col-lg-9">
+                    <div class="editor-label col-lg-1">
+                        @Html.LabelFor(model => model.workdayMon)
+
+                        <div class="editor-field>
+                            @Html.EditorFor(model => model.workdayMon)
+                            @Html.ValidationMessageFor(model => model.workdayMon)
+                        </div>
+                    </div>
+                    <div class="editor-label col-lg-1">
+                        @Html.LabelFor(model => model.workdayTue)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.workdayTue)
+                        @Html.ValidationMessageFor(model => model.workdayTue)
+                    </div>
+
+                    <div class="editor-label col-lg-1">
+                        @Html.LabelFor(model => model.workdayWed)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.workdayWed)
+                        @Html.ValidationMessageFor(model => model.workdayWed)
+                    </div>
+
+                    <div class="editor-label col-lg-1">
+                        @Html.LabelFor(model => model.workdayThu)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.workdayThu)
+                        @Html.ValidationMessageFor(model => model.workdayThu)
+                    </div>
+
+                    <div class="editor-label col-lg-1">
+                        @Html.LabelFor(model => model.workdayFri)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.workdayFri)
+                        @Html.ValidationMessageFor(model => model.workdayFri)
+                    </div>
+
+                    <div class="editor-label col-lg-1">
+                        @Html.LabelFor(model => model.workdaySat)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.workdaySat)
+                        @Html.ValidationMessageFor(model => model.workdaySat)
+                    </div>
+
+                    <div class="editor-label col-lg-1">
+                        @Html.LabelFor(model => model.workdaySun)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.workdaySun)
+                        @Html.ValidationMessageFor(model => model.workdaySun)
+                    </div>
+                </div>
+            </div>*@
 
 
         <div class="editor-label">
