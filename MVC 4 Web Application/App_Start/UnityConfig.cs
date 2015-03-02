@@ -38,7 +38,7 @@ namespace PowerteqDTReport.App_Start
 
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
-	        container.RegisterType<IPowerteqContext, PowerteqContextMock>();
+	        container.RegisterType<IPowerteqContext, PowerteqContextMock>(new HierarchicalLifetimeManager());
         }
     }
 }
