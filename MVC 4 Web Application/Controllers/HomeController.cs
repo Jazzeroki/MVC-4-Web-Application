@@ -133,11 +133,63 @@ namespace PowerteqDTReport.Controllers
         }
 
 
+        ////Downtime Event Controllers
 
+
+        //public ActionResult DowntimeEvent()
+        //{
+        //    return View("DowntimeEvent");
+        //}
+
+        [HttpGet]
         public ActionResult DowntimeEvent()
         {
-            return View("DowntimeEvent");
+            return View(SetupDowntimeEventViewModel());
         }
+
+        private Models.DowntimeEventViewModel SetupDowntimeEventViewModel()
+        {
+            return new Models.DowntimeEventViewModel
+            {
+                DowntimeEvents = PowerteqContext.DowntimeEvents.AsEnumerable()
+            };
+        }
+        [HttpPost]
+        public ActionResult DowntimeEvents(DowntimeEventModel downtimeEvent)
+        {
+            PowerteqContext.DowntimeEvents.Add(downtimeEvent);
+            PowerteqContext.SaveChanges();
+            return View(SetupDowntimeEventViewModel());
+        }
+
+        [HttpGet]
+        public ActionResult EditDowntimeEvent(int Id)
+        {
+            //SystemModel System = PowerteqContext.Systems.Find(Id);
+            DowntimeEventModel DowntimeEvent = PowerteqContext.DowntimeEvents.ElementAt<DowntimeEventModel>(Id);
+            //Models.SystemViewModel sys = new Models.SystemViewModel();
+            //sys.System = System;
+            return View(DowntimeEvent);
+            //return View(System);
+        }
+
+        [HttpPost]
+        public ActionResult EditDowntimeEvent(DowntimeEventModel newDowntimeEvent)
+        {
+            PowerteqContext.DowntimeEvents.Remove(PowerteqContext.DowntimeEvents.ElementAt<DowntimeEventModel>(newDowntimeEvent.id));
+            PowerteqContext.DowntimeEvents.Add(newDowntimeEvent);
+            //PowerteqContext.Departments.ElementAt<DepartmentModel>(newDepartment.id).departmentName = newDepartment.departmentName;
+            //PowerteqContext.Systems.Remove(oldSystem);
+            //PowerteqContext.Systems.Add(newSystem);
+            //return View("Departments");
+            return DowntimeEvent();
+        }
+
+
+
+
+
+
         public ActionResult Reports()
         {
             return View("Reports");

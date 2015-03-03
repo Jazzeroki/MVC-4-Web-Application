@@ -1,5 +1,5 @@
-﻿@model PowerteqDTModels.DowntimeEventModel
-
+﻿@*@model PowerteqDTModels.DowntimeEventModel*@
+@model PowerteqDTReport.Models.DowntimeEventViewModel
 @{
     ViewBag.Title = "Downtime Event";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                @Html.LabelFor(model => model.Description)
+                <h4>@Html.LabelFor(model => model.Description)</h4>
                 <p>
                     @Html.EditorFor(model => model.Description)
                     @Html.ValidationMessageFor(model => model.Description)
