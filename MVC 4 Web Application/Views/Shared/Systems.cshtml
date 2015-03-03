@@ -15,10 +15,10 @@
         </div>
         @foreach (var sys in Model.Systems)
         {
-
+        
             <div class="row">
                 <div class="col-sm-3">@Html.DisplayFor(l => sys.systemName)</div>
-                <div class="col-sm-1">@Html.ActionLink("Edit", "EditSystem", new object{id = sys.id )</div>
+                <div class="col-sm-1">@Html.ActionLink("Edit", "EditSystem", new { Id = sys.id })</div>
                 <div class="col-sm-1">@Html.ActionLink("Delete", "DeleteSystem")</div>
             </div>
 
@@ -50,7 +50,7 @@
                     <br />
                     @Html.ValidationMessageFor(model => model.System.systemName)
                 </div>
-
+                
                 <p>
                     <input type="submit" value="Save" />
                 </p>

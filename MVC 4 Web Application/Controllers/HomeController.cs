@@ -52,6 +52,28 @@ namespace PowerteqDTReport.Controllers
             PowerteqContext.SaveChanges();
             return View(SetupSystemViewModel());
         }
+        
+        //Test of edit system Model
+        [HttpGet]
+        public ActionResult EditSystem(int Id)
+        {
+            //SystemModel System = PowerteqContext.Systems.Find(Id);
+            SystemModel System = PowerteqContext.Systems.ElementAt<SystemModel>(Id);
+            //Models.SystemViewModel sys = new Models.SystemViewModel();
+            //sys.System = System;
+            return View(System);
+            //return View(System);
+        }
+
+        [HttpPost]
+        public ActionResult EditSystem(SystemModel newSystem)
+        {
+            PowerteqContext.Systems.ElementAt<SystemModel>(newSystem.id).systemName = newSystem.systemName;
+            //PowerteqContext.Systems.Remove(oldSystem);
+            //PowerteqContext.Systems.Add(newSystem);
+            return View();
+            //return Systems();
+        }
 
 
         public ActionResult Departments()
