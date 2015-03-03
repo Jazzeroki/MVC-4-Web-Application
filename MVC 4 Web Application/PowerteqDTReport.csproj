@@ -266,7 +266,7 @@
     <Content Include="Views\Shared\Locations.cshtml" />
     <Content Include="Views\Shared\DowntimeEvent.cshtml" />
     <Content Include="Views\Shared\EditSystem.cshtml" />
-    <Content Include="Views\Shared\EditDepartments.cshtml" />
+    <Content Include="Views\Shared\EditDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -71,8 +71,8 @@ namespace PowerteqDTReport.Controllers
             PowerteqContext.Systems.ElementAt<SystemModel>(newSystem.id).systemName = newSystem.systemName;
             //PowerteqContext.Systems.Remove(oldSystem);
             //PowerteqContext.Systems.Add(newSystem);
-            return View();
-            //return Systems();
+            //return View();
+            return Systems();
         }
 
 
@@ -123,11 +123,13 @@ namespace PowerteqDTReport.Controllers
         [HttpPost]
         public ActionResult EditDepartment(DepartmentModel newDepartment)
         {
-            PowerteqContext.Departments.ElementAt<DepartmentModel>(newDepartment.id).departmentName = newDepartment.departmentName;
+            PowerteqContext.Departments.Remove(PowerteqContext.Departments.ElementAt<DepartmentModel>(newDepartment.id));
+            PowerteqContext.Departments.Add(newDepartment);
+            //PowerteqContext.Departments.ElementAt<DepartmentModel>(newDepartment.id).departmentName = newDepartment.departmentName;
             //PowerteqContext.Systems.Remove(oldSystem);
             //PowerteqContext.Systems.Add(newSystem);
-            return View();
-            //return Systems();
+            //return View("Departments");
+            return Departments();
         }
 
 
