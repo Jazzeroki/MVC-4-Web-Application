@@ -1,0 +1,121 @@
+﻿@model PowerteqDTModels.DepartmentModel
+
+@{
+    ViewBag.Title = "Departments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @*<legend>DepartmentModel</legend>*@
+
+        @Html.HiddenFor(model => model.id)
+        <div class="container">
+            <div class="row">
+                <h3>Department Name</h3>
+                <div class="col-sm-3">
+                    <p>
+                        @Html.EditorFor(model => model.departmentName)
+                        @Html.ValidationMessageFor(model => model.departmentName)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        @*<div class="editor-label">
+                @Html.LabelFor(model => model.locationID)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.locationID)
+                @Html.ValidationMessageFor(model => model.locationID)
+            </div>*@
+
+        <!-- Days of the week-->
+        <div class="container">
+            <div class="row">
+                <h3>Working Days</h3>
+                <div class="col-sm-1">
+                    Mon <p>
+                        @Html.EditorFor(model => model.workdayMon)
+                        @Html.ValidationMessageFor(model => model.workdayMon)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Tue <p>
+                        @Html.EditorFor(model => model.workdayTue)
+                        @Html.ValidationMessageFor(model => model.workdayTue)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Wed <p>
+                        @Html.EditorFor(model => model.workdayWed)
+                        @Html.ValidationMessageFor(model => model.workdayWed)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Thu <p>
+                        @Html.EditorFor(model => model.workdayThu)
+                        @Html.ValidationMessageFor(model => model.workdayThu)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Fri <p>
+                        @Html.EditorFor(model => model.workdayFri)
+                        @Html.ValidationMessageFor(model => model.workdayFri)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Sat <p>
+                        @Html.EditorFor(model => model.workdaySat)
+                        @Html.ValidationMessageFor(model => model.workdaySat)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Sun <p>
+                        @Html.EditorFor(model => model.workdaySun)
+                        @Html.ValidationMessageFor(model => model.workdaySun)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h3>Working Hours</h3>
+                <div class="col-sm-3">
+                    <h4>Start of work hours</h4>
+                    <p>
+                        @Html.EditorFor(model => model.startWorkingHours)
+                        @Html.ValidationMessageFor(model => model.startWorkingHours)
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>End of work hours</h4>
+                    <p>
+                        @Html.EditorFor(model => model.endWorkingHours)
+                        @Html.ValidationMessageFor(model => model.endWorkingHours)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

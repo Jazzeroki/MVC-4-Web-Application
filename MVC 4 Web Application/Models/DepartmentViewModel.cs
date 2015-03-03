@@ -6,7 +6,7 @@ using PowerteqDTModels;
 
 namespace PowerteqDTReport.Models
 {
-    class DepartmentViewModel
+    public class DepartmentViewModel
     {
         public IEnumerable<DepartmentModel> Departments { get; set; }
         public DepartmentModel Department { get; set; }

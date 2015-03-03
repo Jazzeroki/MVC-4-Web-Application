@@ -76,14 +76,62 @@ namespace PowerteqDTReport.Controllers
         }
 
 
+        //Department Controllers
+
+        //public ActionResult Departments()
+        //{
+        //    return View("Departments");
+        //}
+        //public ActionResult DepartmentsEdit()
+        //{
+        //    return View("DepartmentsEdit");
+        //}
+
+
+        [HttpGet]
         public ActionResult Departments()
         {
-            return View("Departments");
+            return View(SetupDepartmentViewModel());
         }
-        public ActionResult DepartmentsEdit()
+
+        private Models.DepartmentViewModel SetupDepartmentViewModel()
         {
-            return View("DepartmentsEdit");
+            return new Models.DepartmentViewModel
+            {
+                Departments = PowerteqContext.Departments.AsEnumerable()
+            };
         }
+        [HttpPost]
+        public ActionResult Departments(DepartmentModel department)
+        {
+            PowerteqContext.Departments.Add(department);
+            PowerteqContext.SaveChanges();
+            return View(SetupDepartmentViewModel());
+        }
+
+        [HttpGet]
+        public ActionResult EditDepartment(int Id)
+        {
+            //SystemModel System = PowerteqContext.Systems.Find(Id);
+            DepartmentModel Department = PowerteqContext.Departments.ElementAt<DepartmentModel>(Id);
+            //Models.SystemViewModel sys = new Models.SystemViewModel();
+            //sys.System = System;
+            return View(Department);
+            //return View(System);
+        }
+
+        [HttpPost]
+        public ActionResult EditDepartment(DepartmentModel newDepartment)
+        {
+            PowerteqContext.Departments.ElementAt<DepartmentModel>(newDepartment.id).departmentName = newDepartment.departmentName;
+            //PowerteqContext.Systems.Remove(oldSystem);
+            //PowerteqContext.Systems.Add(newSystem);
+            return View();
+            //return Systems();
+        }
+
+
+
         public ActionResult DowntimeEvent()
         {
             return View("DowntimeEvent");

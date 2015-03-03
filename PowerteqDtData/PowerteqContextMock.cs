@@ -24,6 +24,8 @@ namespace PowerteqDtData
 			this.DowntimeEvents = new TestDbSet<DowntimeEventModel>();
 
 			this.Locations.Add(new LocationModel { id = 0, locationName = "mock location" });
+            this.Systems.Add(new SystemModel { id = 0, systemName = "mock system" });
+            this.Departments.Add(new DepartmentModel { id = 0, departmentName = "mock department", startWorkingHours = 900, endWorkingHours = 1700, workdayMon = true, workdayTue = true });
 
 		}
 
