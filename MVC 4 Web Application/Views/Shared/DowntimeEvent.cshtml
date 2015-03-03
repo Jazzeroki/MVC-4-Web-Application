@@ -5,42 +5,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>View1</h2>
 
-@using (Html.BeginForm()) {
+
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <div class="container">
+        <h2>@ViewBag.Title</h2>
+        <div class="row">
+            <div class="col-sm-3">
+                @*@Html.LabelFor(model => model.startDateTime)*@
+                <h4>Event start date/time</h4>
+                <p>
+                    @Html.EditorFor(model => model.startDateTime)
+                    @Html.ValidationMessageFor(model => model.startDateTime)
+                </p>
+            </div>
 
+
+            <div class="col-sm-3">
+                @*@Html.LabelFor(model => model.endDateTime)*@
+                <h4>Event end date/time</h4>
+                <p>
+                    @Html.EditorFor(model => model.endDateTime)
+                    @Html.ValidationMessageFor(model => model.endDateTime)
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                @Html.LabelFor(model => model.Description)
+                <p>
+                    @Html.EditorFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+    </div>
     <fieldset>
-        <legend>DowntimeEventModel</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.startDateTime)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.startDateTime)
-            @Html.ValidationMessageFor(model => model.startDateTime)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.endDateTime)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.endDateTime)
-            @Html.ValidationMessageFor(model => model.endDateTime)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
-        </div>
+        
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
+
+        
     </fieldset>
 }
 
