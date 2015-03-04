@@ -1,0 +1,81 @@
+﻿@*@model PowerteqDTModels.DowntimeEventModel*@
+@model PowerteqDTReport.Models.DowntimeEventViewModel
+@{
+    ViewBag.Title = "Downtime Event";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="container">
+        <h2>@ViewBag.Title</h2>
+        <div class="row">
+            <div class="col-sm-3">
+                @*@Html.LabelFor(model => model.startDateTime)*@
+                <h4>Event start date/time</h4>
+                <p>
+                    @Html.EditorFor(model => model.DowntimeEvent.StartDateTime)
+                    @Html.ValidationMessageFor(model => model.DowntimeEvent.StartDateTime)
+                </p>
+            </div>
+
+
+            <div class="col-sm-3">
+                @*@Html.LabelFor(model => model.endDateTime)*@
+                <h4>Event end date/time</h4>
+                <p>
+                    @Html.EditorFor(model => model.DowntimeEvent.EndDateTime)
+                    @Html.ValidationMessageFor(model => model.DowntimeEvent.EndDateTime)
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>@Html.LabelFor(model => model.DowntimeEvent.Description)</h4>
+                <p>
+                    @Html.EditorFor(model => model.DowntimeEvent.Description)
+                    @Html.ValidationMessageFor(model => model.DowntimeEvent.Description)
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+    </div>
+    <hr />   
+}
+
+@if (Model.DowntimeEvents.Count<Object>() != 0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><strong>System Name</strong></div>
+            <div class="col-sm-1"><strong>Edit</strong></div>
+            <div class="col-sm-1"><strong>Delete</strong></div>
+        </div>
+        @foreach (var sys in Model.DowntimeEvents)
+        {
+
+            <div class="row">
+                <div class="col-sm-3">@Html.DisplayFor(l => sys.Description)</div>
+                <div class="col-sm-1">@Html.ActionLink("Edit", "EditDowntimeEvent", new { Id = sys.ID })</div>
+                <div class="col-sm-1">@Html.ActionLink("Delete", "DeleteDowntimeEvent")</div>
+            </div>
+
+        }
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

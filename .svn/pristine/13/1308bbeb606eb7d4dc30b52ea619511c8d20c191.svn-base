@@ -1,0 +1,78 @@
+﻿@model PowerteqDTReport.Models.LocationViewModel
+
+
+@{
+    ViewBag.Title = "Location";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@ViewBag.Title</h2>
+
+@if (Model.Locations.Count<Object>() != 0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><strong>System Name</strong></div>
+            <div class="col-sm-1"><strong>Edit</strong></div>
+            <div class="col-sm-1"><strong>Delete</strong></div>
+        </div>
+        @foreach (var loc in Model.Locations)
+        {
+
+            <div class="row">
+                <div class="col-sm-3">@Html.DisplayFor(l => loc.LocationName)</div>
+                <div class="col-sm-1">@Html.ActionLink("Edit", "EditLocation", new { Id = loc.ID })</div>
+                <div class="col-sm-1">@Html.ActionLink("Delete", "DeleteLocation")</div>
+            </div>
+
+        }
+    </div>
+}
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                @Html.HiddenFor(model => model.Location.ID)
+
+                <div class="editor-label">
+                    <strong>Enter System Name</strong>
+                    @*@Html.LabelFor(model => model.System.systemName)*@
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Location.LocationName)
+                    <br />
+                    @Html.ValidationMessageFor(model => model.Location.LocationName)
+                </div>
+
+                <p>
+                    <input type="submit" value="Save" />
+                </p>
+            </fieldset>
+        }
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+

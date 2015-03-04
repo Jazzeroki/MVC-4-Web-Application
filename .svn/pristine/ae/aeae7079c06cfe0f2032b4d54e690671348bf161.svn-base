@@ -1,0 +1,135 @@
+﻿@*@model PowerteqDTModels.DepartmentModel*@
+@model PowerteqDTReport.Models.DepartmentViewModel
+
+@{
+    ViewBag.Title = "Departments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+@if (Model.Departments.Count<Object>() != 0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"><strong>Department Name</strong></div>
+            <div class="col-sm-1"><strong>Edit</strong></div>
+            <div class="col-sm-1"><strong>Delete</strong></div>
+        </div>
+        @foreach (var dep in Model.Departments)
+        {
+
+            <div class="row">
+                <div class="col-sm-3">@Html.DisplayFor(l => dep.DepartmentName)</div>
+                <div class="col-sm-1">@Html.ActionLink("Edit", "EditDepartment", new { Id = dep.ID })</div>
+                <div class="col-sm-1">@Html.ActionLink("Delete", "DeleteDepartment")</div>
+            </div>
+
+        }
+    </div>
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        @*<legend>DepartmentModel</legend>*@
+
+        @Html.HiddenFor(model => model.Department.ID)
+        <div class="container">
+            <div class="row">
+                <h3>Department Name</h3>
+                <div class="col-sm-3">
+                    <p>
+                        @Html.EditorFor(model => model.Department.DepartmentName)
+                        @Html.ValidationMessageFor(model => model.Department.DepartmentName)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Days of the week-->
+        <div class="container">
+            <div class="row">
+                <h3>Working Days</h3>
+                <div class="col-sm-1">
+                    Mon <p>
+                        @Html.EditorFor(model => model.Department.WorkdayMon)
+                        @Html.ValidationMessageFor(model => model.Department.WorkdayMon)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Tue <p>
+                        @Html.EditorFor(model => model.Department.WorkdayTue)
+                        @Html.ValidationMessageFor(model => model.Department.WorkdayTue)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Wed <p>
+                        @Html.EditorFor(model => model.Department.WorkdayWed)
+                        @Html.ValidationMessageFor(model => model.Department.WorkdayWed)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Thu <p>
+                        @Html.EditorFor(model => model.Department.WorkdayThu)
+                        @Html.ValidationMessageFor(model => model.Department.WorkdayThu)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Fri <p>
+                        @Html.EditorFor(model => model.Department.WorkdayFri)
+                        @Html.ValidationMessageFor(model => model.Department.WorkdayFri)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Sat <p>
+                        @Html.EditorFor(model => model.Department.WorkdaySat)
+                        @Html.ValidationMessageFor(model => model.Department.WorkdaySat)
+                    </p>
+                </div>
+                <div class="col-sm-1">
+                    Sun <p>
+                        @Html.EditorFor(model => model.Department.WorkdaySun)
+                        @Html.ValidationMessageFor(model => model.Department.WorkdaySun)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <h3>Working Hours</h3>
+                <div class="col-sm-3">
+                    <h4>Start of work hours</h4>
+                    <p>
+                        @Html.EditorFor(model => model.Department.StartWorkingHours)
+                        @Html.ValidationMessageFor(model => model.Department.StartWorkingHours)
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <h4>End of work hours</h4>
+                    <p>
+                        @Html.EditorFor(model => model.Department.EndWorkingHours)
+                        @Html.ValidationMessageFor(model => model.Department.EndWorkingHours)
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

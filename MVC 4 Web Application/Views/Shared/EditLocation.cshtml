@@ -1,0 +1,42 @@
+﻿@model PowerteqDTModels.LocationModel
+@{
+	ViewBag.Title = "Edit Location";
+}
+
+<div class="container">
+	<div class="row">
+		<h2>@ViewBag.Title</h2>
+		@using (Html.BeginForm())
+		{
+			@Html.AntiForgeryToken()
+			@Html.ValidationSummary(true)
+
+			<fieldset>
+
+				@Html.HiddenFor(model => model.ID)
+
+				<div class="editor-label">
+					<strong>Enter Location Name</strong>
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.LocationName)
+					<br />
+					@Html.ValidationMessageFor(model => model.LocationName)
+				</div>
+
+				<p>
+					<input type="submit" value="Save" />
+				</p>
+			</fieldset>
+		}
+	</div>
+</div>
+
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}
