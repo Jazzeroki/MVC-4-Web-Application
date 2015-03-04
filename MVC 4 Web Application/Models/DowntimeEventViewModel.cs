@@ -11,6 +11,8 @@ namespace PowerteqDTReport.Models
 		public IEnumerable<DowntimeEventModel> DowntimeEvents { get; set; }
 		public DowntimeEventModel DowntimeEvent { get; set; }
 		public IEnumerable<LocationModel> Locations { get; set; }
+		public IEnumerable<SystemModel> Systems { get; set; }
+		public IEnumerable<DepartmentModel> Departments { get; set; }
 
 	}
 }

@@ -25,7 +25,7 @@ namespace PowerteqDtData
 
 			this.Locations.Add(new LocationModel { ID = 0, LocationName = "mock location" });
             this.Systems.Add(new SystemModel { ID = 0, SystemName = "mock system" });
-            this.Departments.Add(new DepartmentModel { ID = 0, DepartmentName = "mock department", StartWorkingHours = 900, EndWorkingHours = 1700, WorkdayMon = true, WorkdayTue = true });
+            this.Departments.Add(new DepartmentModel { ID = 0, DepartmentName = "mock department", WorkdayMon = true, WorkdayTue = true });
             this.DowntimeEvents.Add(new DowntimeEventModel { ID = 0, Description = "Power out", StartDateTime = DateTime.Now, EndDateTime = DateTime.Now.AddHours(3)});
 
 		}

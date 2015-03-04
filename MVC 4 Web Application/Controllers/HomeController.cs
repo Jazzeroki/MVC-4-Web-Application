@@ -22,16 +22,20 @@ namespace PowerteqDTReport.Controllers
 
 		public ActionResult Index()
 		{
-			//var StatusOfDepartments = PowerteqContext.Departments
+			var EndTime = DateTime.Now;
+			var StartTime = DateTime.Now.AddDays(-28);
+			
+			var diff = StartTime - EndTime;
+			var uptimeHours = diff;
+			var Systems = PowerteqContext.Systems.AsEnumerable();
+			var Locations = PowerteqContext.Locations.AsEnumerable();
+			var Departments = PowerteqContext.Departments.AsEnumerable();
+			var DowntimeEvents = PowerteqContext.DowntimeEvents.AsEnumerable();
 			return View();
 		}
 
 
 		//[HttpGet]
-		//public ActionResult Systems()
-		//{
-		//    return View("Systems");
-		//}
 
 
 		[HttpGet]
@@ -179,11 +183,13 @@ namespace PowerteqDTReport.Controllers
 			return new Models.DowntimeEventViewModel
 			{
 				DowntimeEvents = PowerteqContext.DowntimeEvents.AsEnumerable(),
-				Locations = PowerteqContext.Locations.AsEnumerable()
+				Locations = PowerteqContext.Locations.AsEnumerable(),
+				Departments = PowerteqContext.Departments.AsEnumerable(),
+				Systems = PowerteqContext.Systems.AsEnumerable()
 			};
 		}
 		[HttpPost]
-		public ActionResult DowntimeEvents(DowntimeEventModel downtimeEvent)
+		public ActionResult DowntimeEvent(DowntimeEventModel downtimeEvent)
 		{
 			PowerteqContext.DowntimeEvents.Add(downtimeEvent);
 			PowerteqContext.SaveChanges();

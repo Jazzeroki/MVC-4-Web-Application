@@ -27,9 +27,11 @@ namespace PowerteqDTModels
 		public bool WorkdaySun { get; set; }
 
 		[Required]
-		public int StartWorkingHours { get; set; }
+		[DataType(DataType.Time)]
+		public DateTime StartWorkingHours { get; set; }
 		[Required]
-		public int EndWorkingHours { get; set; }
+		[DataType(DataType.Time)]
+		public DateTime EndWorkingHours { get; set; }
 	}
 	
 }

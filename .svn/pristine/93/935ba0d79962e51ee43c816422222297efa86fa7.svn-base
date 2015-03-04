@@ -44,22 +44,6 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-sm-3">
-				<h3>Department</h3>
-				<p>
-					@Html.DropDownListFor(m => m.DowntimeEvent.DepartmentID, new SelectList(Model.Departments, "ID", "DepartmentName"))
-				</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-3">
-				<h3>System</h3>
-				<p>
-					@Html.DropDownListFor(m => m.DowntimeEvent.SystemID, new SelectList(Model.Systems, "ID", "SystemName"))
-				</p>
-			</div>
-		</div>
-		<div class="row">
 			<div class="col-sm-6">
 				<h4>@Html.LabelFor(model => model.DowntimeEvent.Description)</h4>
 				<p>
