@@ -1,0 +1,5 @@
+﻿@{
+    ViewBag.Title = "ReportDepartmentAvailability";
+}
+
+<h2>ReportDepartmentAvailability</h2>

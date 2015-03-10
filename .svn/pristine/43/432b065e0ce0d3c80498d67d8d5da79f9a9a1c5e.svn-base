@@ -1,0 +1,17 @@
+﻿@*@model PowerteqDTReport.Models.SystemViewModel*@
+@{
+	ViewBag.Title = "Department Availability";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@(Html.Partial("_Reports"))
+
+
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

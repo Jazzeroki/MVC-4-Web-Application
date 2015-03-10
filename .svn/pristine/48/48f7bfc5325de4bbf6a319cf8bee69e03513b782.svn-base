@@ -1,0 +1,43 @@
+﻿@model List<PowerteqDTReport.Models.IndexSystemUptime>
+@{
+	ViewBag.Title = "Dashboard";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="container">
+	<div class="row">
+		<h2>@ViewBag.Title</h2>
+	</div>
+	@using (Html.BeginForm("Index", "Index", FormMethod.Post, new PowerteqDTReport.Models.IndexSystemUptime())) { 
+	<div class="row">	
+		<div class="col-sm-3"><p><h3>Start Date/Time</h3></p><p><h5>example 3/4/2015 6:00 am</h5></p><p>start date/time box @Html.EditorFor(l=> l.</p></div>
+		<div class="col-sm-3"><p><h3>End Date/Time</h3></p><p><h5>example 3/4/2015 8:00 am</h5></p><p>start date/time box</p></div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">Submit Button</div>
+	</div>
+	}	
+		@if (Model.Count > 0)
+		{
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3"><h3>Department</h3></div>
+					<div class="col-sm-3"><h3>Location</h3></div>
+					<div class="col-sm-3"><h3>Uptime Percentage</h3></div>
+					<div class="col-sm-3"><h3>Amount Time Up</h3></div>
+				</div>
+				@foreach (var up in Model)
+				{
+					<div class="row">
+						<div class="col-sm-3">@Html.DisplayFor(l => up.Department)</div>
+						<div class="col-sm-3">@Html.DisplayFor(l => up.Location)</div>
+						<div class="col-sm-3">@Html.DisplayFor(l => up.UptimePercentage)</div>
+						<div class="col-sm-3">@Html.DisplayFor(l => up.AmountTimeUp)</div>
+					</div>
+				}
+			</div>
+		}
+
+</div>

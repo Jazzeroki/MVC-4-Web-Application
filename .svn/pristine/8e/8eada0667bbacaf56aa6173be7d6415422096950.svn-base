@@ -1,0 +1,6 @@
+﻿@{
+    ViewBag.Title = "ReportUptimeBySystem";
+}
+
+<h2>ReportUptimeBySystem</h2>
+Not Implemented Yet

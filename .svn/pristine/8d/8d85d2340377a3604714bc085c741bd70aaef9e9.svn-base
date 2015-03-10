@@ -1,0 +1,5 @@
+﻿@{
+    ViewBag.Title = "ReportUptimeBySystem";
+}
+
+<h2>ReportUptimeBySystem</h2>

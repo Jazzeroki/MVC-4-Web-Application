@@ -1,0 +1,133 @@
+﻿@*@model PowerteqDTModels.DowntimeEventModel*@
+@model PowerteqDTReport.Models.EditDTEventModel
+@{
+	ViewBag.Title = "Edit Downtime Event";
+}
+
+
+
+@using (Html.BeginForm())
+{
+	@Html.AntiForgeryToken()
+	@Html.ValidationSummary(true)
+	@Html.HiddenFor(n => n.DTEvent.ID);
+
+<div class="container">
+	<h2>@ViewBag.Title</h2>
+	<div class="row">
+		<div class="col-sm-3">
+			@*@Html.LabelFor(model => model.startDateTime)*@
+			<h4>Event start date/time</h4>
+			<p><h6>example 3/4/2015 6:00 am</h6></p>
+			<p>
+				@Html.EditorFor(model => model.DTEvent.StartDateTime, new{id = "StartDate"})
+
+				@Html.ValidationMessageFor(model => model.DTEvent.StartDateTime)
+			</p>
+		</div>
+
+
+		<div class="col-sm-3">
+			@*@Html.LabelFor(model => model.endDateTime)*@
+			<h4>Event end date/time</h4>
+			<p><h6>example 3/4/2015 6:00 am</h6></p>
+			<p>
+				@Html.EditorFor(model => model.DTEvent.EndDateTime, new { id = "EndDate" })
+				@Html.ValidationMessageFor(model => model.DTEvent.EndDateTime)
+			</p>
+		</div>
+	</div>
+
+	
+
+
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Location</h3>
+			<p>
+				@Html.DropDownListFor(m => m.DTEvent.LocationID, new SelectList(Model.Locations, "ID", "LocationName", Model.DTEvent.LocationID));
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>Department</h3>
+			<p>
+				@Html.ListBoxFor(m => m.DTEvent.AffectedDepartments, new SelectList(Model.Departments, "ID", "DepartmentName", Model.DTEvent.AffectedDepartments))
+				@*@Html.DropDownListFor(m => m.DTEvent.DepartmentID, new SelectList(Model.Departments, "ID", "DepartmentName", Model.DTEvent.DepartmentID))*@
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<h3>System</h3>
+			<p>
+				@Html.ListBoxFor(m => m.DTEvent.AffectedSystems, new SelectList(Model.Systems, "ID", "SystemName", Model.DTEvent.AffectedSystems))
+				@*@Html.DropDownListFor(m => m.DTEvent.SystemID, new SelectList(Model.Systems, "ID", "SystemName", Model.DTEvent.SystemID))*@
+			</p>
+		</div>
+	</div>
+	@*@foreach(var x in Model.Departments){
+	 @Html.CheckBoxFor()
+		@//Html.CheckBox("Departments", new { value = x.ID.ToString })
+
+	}*@
+	@*@using (Ajax.BeginForm(
+	new AjaxOptions
+	{
+	HttpMethod = "get",
+	InsertionMode = InsertionMode.Replace,
+	UpdateTargetId = "dropdowns"
+	}))*@
+
+
+	<div id="dropdowns"></div>
+
+
+	<script>
+		$(document).ready(function () {
+
+			// Gather data
+
+
+			// ajax for the dropdowns
+			$.ajax({
+				url: '/DowntimeEvent/GetDropdowns',
+				type: 'GET',
+
+			}.done(function (html) {
+				$('#dropdowns').html(html);
+			}.fail(function (msg) {
+				alert(msg);
+			})));
+		});
+	</script>
+
+
+	@*{@Html.Partial("_EditDowntimeEventDropDowns", )}*@
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<h4>@Html.LabelFor(model => model.DTEvent.Description)</h4>
+			<p>
+				@Html.EditorFor(model => model.DTEvent.Description)
+				@Html.ValidationMessageFor(model => model.DTEvent.Description)
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-3">
+			<input type="submit" value="Modify" />
+		</div>
+	</div>
+	<div>
+		@Html.ActionLink("Back to List", "Index")
+	</div>
+</div>
+
+}
+
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

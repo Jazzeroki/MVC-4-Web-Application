@@ -1,0 +1,32 @@
+﻿@model	PowerteqDTReport.Models.EditDowntimeEvenDropdownModel
+@{
+	Layout = null;
+}
+
+
+
+
+<div class="row">
+	<div class="col-sm-3">
+		<h3>Location</h3>
+		<p>
+			@Html.DropDownListFor(m => m.LocationID, new SelectList(Model.Locations, "ID", "LocationName"))
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3">
+		<h3>Department</h3>
+		<p>
+			@Html.DropDownListFor(m => m.DepartmentID, new SelectList(Model.Departments, "ID", "DepartmentName"))
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3">
+		<h3>System</h3>
+		<p>
+			@Html.DropDownListFor(m => m.SystemID, new SelectList(Model.Systems, "ID", "SystemName"))
+		</p>
+	</div>
+</div>

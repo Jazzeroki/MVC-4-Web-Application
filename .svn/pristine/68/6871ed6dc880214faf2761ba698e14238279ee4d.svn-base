@@ -1,0 +1,21 @@
+﻿
+@model List<PowerteqDTReport.Models.ReportUptimeBySystem>
+@{
+	ViewBag.Title = "ReportUptimeBySystem";
+}
+@(Html.Partial("_Reports"))
+
+<h2>@ViewBag.Title</h2>
+Not Implemented Yet
+@if (Model.Count<object>() != 0)
+{
+	
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

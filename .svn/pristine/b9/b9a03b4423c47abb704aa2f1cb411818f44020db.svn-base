@@ -1,0 +1,73 @@
+﻿@model PowerteqDTModels.DowntimeEventModel
+
+@{
+    ViewBag.Title = "EditDowntimeEvent";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+	<div class="container">
+		<h2>@ViewBag.Title</h2>
+		<div class="row">
+			<div class="col-sm-3">
+				@*@Html.LabelFor(model => model.startDateTime)*@
+				<h4>Event start date/time</h4>
+				<p><h6>example 3/4/2015 6:00 am</h6></p>
+				<p>
+					@Html.EditorFor(model => model.StartDateTime, new { id = "StartDate" })
+					@Html.ValidationMessageFor(model => model.StartDateTime)
+				</p>
+			</div>
+
+
+			<div class="col-sm-3">
+				@*@Html.LabelFor(model => model.endDateTime)*@
+				<h4>Event end date/time</h4>
+				<p><h6>example 3/4/2015 6:00 am</h6></p>
+				<p>
+					@Html.EditorFor(model => model.EndDateTime, new { id = "EndDate" })
+					@Html.ValidationMessageFor(model => model.EndDateTime)
+				</p>
+			</div>
+		</div>
+
+		Dropdowns go here
+		@using (Ajax.BeginForm(
+		new AjaxOptions
+		{
+			HttpMethod = "get",
+			InsertionMode = InsertionMode.Replace,
+			UpdateTargetId = "dropdowns"
+		}))
+   
+		{@Html.Partial("_EditDowntimeEventDropDowns")}
+{}
+		<div class="row">
+			<div class="col-sm-6">
+				<h4>@Html.LabelFor(model => model.Description)</h4>
+				<p>
+					@Html.EditorFor(model => model.Description)
+					@Html.ValidationMessageFor(model => model.Description)
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-3">
+				<input type="submit" value="Create" />
+			</div>
+		</div>
+	</div>
+
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
