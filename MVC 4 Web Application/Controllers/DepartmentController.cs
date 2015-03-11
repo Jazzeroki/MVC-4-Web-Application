@@ -1,0 +1,99 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using PowerteqDTModels;
+using PowerteqDtData;
+using PowerteqDTReport.Models;
+
+
+namespace PowerteqDTReport.Controllers
+{
+	public class DepartmentController : Controller
+	{
+		private IPowerteqContext PowerteqContext;
+		//
+		// GET: /Department/
+		public DepartmentController(IPowerteqContext context)
+		{
+			// This is a disposible resource. There is a better way to get this, but we'll leave it for now.
+			PowerteqContext = context;
+		}
+		public ActionResult Index()
+		{
+			return View();
+		}
+
+		[HttpGet]
+		public ActionResult Departments()
+		{
+			return View(SetupDepartmentViewModel());
+		}
+
+		private Models.DepartmentViewModel SetupDepartmentViewModel()
+		{
+			return new Models.DepartmentViewModel
+			{
+				Departments = PowerteqContext.Departments.ToList(),
+				Locations = PowerteqContext.Locations.ToList()
+			};
+		}
+		[HttpPost]
+		public ActionResult Departments(DepartmentModel department)
+		{
+			department.Location = PowerteqContext.Locations.Where(n => n.ID == department.LocationID).SingleOrDefault();
+			PowerteqContext.Departments.Add(department);
+			PowerteqContext.SaveChanges();
+			return View(SetupDepartmentViewModel());
+		}
+
+		[HttpGet]
+		public ActionResult EditDepartment(int Id)
+		{
+			//DepartmentModel Department = PowerteqContext.Departments.Where(n => n.ID == Id).SingleOrDefault();
+			EditDepartmentViewModel model = new EditDepartmentViewModel();
+			model.Department = PowerteqContext.Departments.Where(n => n.ID == Id).SingleOrDefault();
+
+			//Departe
+			model.Locations = PowerteqContext.Locations.ToList();
+			//return View(Department, Locations);
+			return View(model);
+		}
+
+		[HttpPost]
+		//public ActionResult EditDepartment(DepartmentModel modifiedDepartment)
+		public ActionResult EditDepartment(EditDepartmentViewModel modifiedDepartment)
+		{
+			if (ModelState.IsValid)
+			{
+				var existing = PowerteqContext.Departments.Find(modifiedDepartment.Department.ID);
+				PowerteqContext.Entry(existing).CurrentValues.SetValues(modifiedDepartment.Department);
+				PowerteqContext.SaveChanges();
+			}
+			else
+			{
+				return View(modifiedDepartment);
+			}
+
+			return RedirectToAction("Departments");
+		}
+		public ActionResult DeleteDepartment(DepartmentModel modifiedDepartment)
+		{
+			if (ModelState.IsValid)
+			{
+				var existing = PowerteqContext.Departments.Find(modifiedDepartment.ID);
+				PowerteqContext.Departments.Remove(existing);
+				PowerteqContext.SaveChanges();
+			}
+			else
+			{
+				return View(modifiedDepartment);
+			}
+
+			return RedirectToAction("Departments");
+		}
+		
+
+	}
+}
